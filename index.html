@@ -520,7 +520,7 @@
 				</section>
 
 				<section>
-					<p class="fragment"> Remeber how <code>git clone [url]</code> called your local Git Project master?</p>
+					<p class="fragment"> Remember how <code>git clone [url]</code> called your local Git Project master?</p>
 					<p class="fragment">The default Git branch is called master</p>
 					<p class="fragment">Every branch has its own <span class="working-directory">Working Directory</span>,
 						<span class="staging-area">Staging Area</span> and
@@ -567,6 +567,12 @@
 				</section>
 
 				<section>
+					<h3>Naming Branches</h3>
+					<code><p class="fragment">[id][ticket-number][3-to-5-word-summation-of-issue]</p>
+					<p class="fragment">h42-1001-header-navigation-styling</p></code>
+				</section>
+
+				<section>
 					<h3>Switch Branches</h3>
 					<p class="fragment">Different branches point to different commits</p>
 					<p class="fragment">When you switch branches you move your HEAD</p>
@@ -589,21 +595,21 @@
 					<h3 class="fragment">Make a branch</h3>
 					<code class="fragment">git status</code>
 					<div class="fragment">
-						<p>Make a branch called branch-a <br />
-							<code> git branch branch-a</code>
+						<p>Make a branch called feature-branch <br />
+							<code> git branch feature-branch</code>
 						</p>
 					</div>
 					<div class="fragment">
 						<p>Switch your HEAD to that branch <br />
-						<code> git checkout branch-a</code>
+						<code> git checkout feature-branch</code>
 					</div>
-					<p class="fragment">branch-a and master are pointing at the same commit</p>
+					<p class="fragment">feature-branch and master are pointing at the same commit</p>
 				</section>
 
 				<section>
 					<h3>Develop on your Branch</h3>
-					<p class="fragment">Make a commit on branch-a</p>
-					<p class="fragment">branch-a has moved forward by one commit</p>
+					<p class="fragment">Make a commit on feature-branch</p>
+					<p class="fragment">feature-branch has moved forward by one commit</p>
 				</section>
 
 				<section>
@@ -623,7 +629,7 @@
 					<div class="width-17 float-left-inline-block margin-top-8 ">
 						<div class="commit-box margin-top-4">commit 7de21</div>
 						<div class="head">HEAD</div>
-						<div class="branch-a font-28">branch-a</div>
+						<div class="branch-a font-20">feature-branch</div>
 					</div>
 				</section>
 
@@ -648,7 +654,7 @@
 					<div class ="padding-1 black margin-top-11 transform-up float-left-inline-block margin-top-6">&#11013;</div>
 					<div class="width-17 float-left-inline-block margin-top-8 ">
 						<div class="commit-box margin-top-4">commit 7de21</div>
-						<div class="branch-a font-28">branch-a</div>
+						<div class="branch-a font-20">feature-branch</div>
 					</div>
 				</div>
 				</section>
@@ -679,7 +685,7 @@
 					<div class="width-14 float-left-inline-block font-28 margin-top-6-25">
 						<div class="commit-box">commit cba52</div>
 						<div class="commit-box margin-top-3px">commit 7de21</div>
-						<div class="branch-a">branch-a</div>
+						<div class="branch-a font-20">feature-branch</div>
 					</div>
 					<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
 					<div class="width-14 float-left-inline-block font-28">
@@ -691,7 +697,7 @@
 
 				<section>
 					<h3>Merging</h3>
-					<p class="fragment">We have decided our branch-a changes are magical </p>
+					<p class="fragment">We have decided our feature-branch changes are magical </p>
 					<p class="fragment">Let's share this magic - get these changes on our local master and then push up to the remote</p>
 					<div class="fragment">
 						<code>git checkout[branch-WANTS-the-changes] <br />
@@ -701,9 +707,9 @@
 
 				<section>
 					<h3>Merge Commit</h3>
-					<p class="fragment">We want to be on the master branch and accept the branch-a changes</p>
+					<p class="fragment">We want to be on the master branch and accept the feature-branch changes</p>
 						<code class="fragment">git checkout master <br />
-									git merge branch-a
+									git merge feature-branch
 						</code>
 					</section>
 
@@ -732,7 +738,7 @@
 						<div class="width-11 float-left-inline-block font-25 margin-top-6-25">
 							<div class="commit-box">commit cba52</div>
 							<div class="commit-box margin-top-3px">commit 7de21</div>
-							<div class="branch-a font-20">branch-a</div>
+							<div class="branch-a">feature-branch</div>
 						</div>
 						<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
 						<div class="width-11 float-left-inline-block font-25 margin-top-6-25">
@@ -752,7 +758,7 @@
 					<section>
 						<h3>Non-Divergent History</h3>
 							<code class="font-28 fragment"> git checkout master <br />
-								git merge branch-a<br /></code>
+								git merge feature-branch<br /></code>
 							<p class="font-28 fragment">Two branches with non-divergent history</p>
 							<p class="font-28 fragment">Git will create a fast-forward merge</p>
 							<div class="fragment">
@@ -775,7 +781,7 @@
 						</div>
 						<div class="padding-1 black float-left-inline-block transform-down margin-top-5">&#11013;</div>
 						<div class="width-14 float-left-inline-block font-28 neg-margin-top-2 ">
-							<div class="branch-a">branch-a</div>
+							<div class="branch-a">feature-branch</div>
 							<div class="commit-box">commit f04d8</div>
 						</div>
 					</div>
@@ -801,7 +807,7 @@
 						</div>
 						<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
 						<div class="width-14 float-left-inline-block font-28 margin-top-3">
-							<div class="branch-a">branch-a</div>
+							<div class="branch-a">feature-branch</div>
 							<div class="commit-box">commit f04d8</div>
 							<div class="master">master</div>
 							<div class="head">HEAD</div>
@@ -891,20 +897,20 @@
 						<div class ="padding-1 black margin-top-1 float-left-inline-block">&#11013;</div>
 						<div class="width-14 float-left-inline-block font-28">
 							<div class="commit-box">commit df71a</div>
-							<div class="branch-a">branch-a</div>
+							<div class="branch-a">feature-branch</div>
 						</div>
 					</section>
 
 					<section>
 						<h3>How Rebasing Works</h3>
-						<p class="fragment">We want to rebase the changes branch-a onto master <br />
-							<code>git checkout branch-a <br />
+						<p class="fragment">We want to rebase the changes feature-branch onto master <br />
+							<code>git checkout feature-branch <br />
 										git rebase master <br />
 							</code>
 						</p>
 						<p class="fragment">Now we need to do a fast-forward merge <br />
 							<code> git checkout master <br />
-									 git merge branch-a
+									 git merge feature-branch
 							</code>
 						</p>
 					</section>
@@ -928,8 +934,8 @@
 							<div class="commit-box">commit cba52</div>
 						</div>
 						<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
-						<div class="width-14 float-left-inline-block margin-top-3-25 font-28">
-							<div class="branch-a">branch-a</div>
+						<div class="width-14 float-left-inline-block margin-top-1 font-28">
+							<div class="branch-a">feature-branch</div>
 							<div class="commit-box">commit df71a</div>
 							<div class="master">master</div>
 							<div class="head">HEAD</div>
@@ -974,8 +980,8 @@
 								<div class="commit-box">commit 45ec9</div>
 							</div>
 							<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
-							<div class="width-11 float-left-inline-block font-20 margin-top-4">
-								<div class="branch-a">branch-a</div>
+							<div class="width-11 float-left-inline-block font-20 margin-top-2-25">
+								<div class="branch-a">feature-branch</div>
 								<div class="commit-box font-25">commit aac871</div>
 							</div>
 						</div>
@@ -983,7 +989,7 @@
 
 					<section>
 						<h3>Cherry-Pick</h3>
-						<p class="fragment">Pull in the second commit on branch-a 45ec9 into master</p>
+						<p class="fragment">Pull in the second commit on feature-branch 45ec9 into master</p>
 						<code class="fragment">git checkout master <br />
 									git cherry-pick 45ec9</code>
 						<p class="fragment">This creates a new commit</p>
@@ -1016,8 +1022,8 @@
 							<div class="cherrypick-merge-commit-arrow black">&#9664;</div>
 						</div>
 						<div class ="padding-1 black float-left-inline-block margin-top-6-25">&#11013;</div>
-						<div class="width-11 float-left-inline-block font-20 margin-top-4">
-							<div class="branch-a">branch-a</div>
+						<div class="width-11 float-left-inline-block font-20 margin-top-2">
+							<div class="branch-a">feature-branch</div>
 							<div class="commit-box font-25">commit aac871</div>
 							<div class="commit-box margin-top-3">CHERRY PICK commit 98bef</div>
 							<div class="master">master</div>

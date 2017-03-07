@@ -1,0 +1,1118 @@
+<!doctype html>
+<html>
+	<img src="images/Hook42Logo.png" style="margin: 2rem; height: 7%; position: absolute;" />
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Ready, Git Set, Go</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hook42.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section class="present" style="top: 226px; display: block;">
+					<h1 class="text__dark text__bold">
+						Ready, Git Set, Go! </h1>
+					<h3 class="fragment">Understanding Git</h3>
+				</section>
+
+				<section>
+					<h3>About me</h3>
+					<ul>
+						<li class="fragment">Front End Developer at Hook 42</li>
+						<li class="fragment">Swimming, cats and the internet</li>
+						<li class="fragment">My first solo talk </li>
+					</ul>
+
+				</section>
+
+				<section>
+					<h3>Assumptions</h3>
+					<ul>
+						<li class="fragment">You have basic command line knowledge </li>
+						<li class="fragment">You have Git downloaded and configured on your computer
+							<a href="https://git-scm.com/downloads">(if not, download Git here)</a></li>
+						<li class="fragment">You are patient - some words are mentioned before they are defined</li>
+					</ul>
+				</section>
+
+				<!-- Comic XKCD -->
+				<section>
+					<img src="images/xkcd-git.png"> <br />
+					<a href="https://xkcd.com/">Source: xkcd</a>
+				</section>
+
+				<section>
+					<img src="images/no-theoffice.webp" style="width: 500px;">
+				</section>
+
+				<section> <h3>Why?</h3>
+					<ul>
+						<span class="fragment"> <li> Because Git is actually pretty awesome </li></span>
+						<span class="fragment"> <li> Fast -- super fast </li></span>
+						<span class="fragment"> <li> Working with large projects with lots of people</li></span>
+						<span class="fragment"> <li> Great for non-linear development</li></span>
+						<span class="fragment"> <li> Work offline! Local work!</li></span>
+						<span class="fragment"> <li> Hard to lose information </li></span>
+					</ul>
+				</section>
+
+				<section><h3>Photographs</h3>
+							<p>Git takes photographs of your data </p>
+							<p class="fragment">When you decide you want to keep a change - you tell Git to take another photo</p>
+							<p class="fragment"> This photo is called a commit </p>
+							<p class="fragment"> Commits look like this: </p>
+							<p class="fragment" style ="font-size: 35px;">commit b69e6a0d77ff0faa92e209e67398b0077f4961cd</p>
+				</section>
+
+				<section>
+						<h3>Let's talk about you</h3>
+				</section>
+
+				<section>
+					 <p>Specifically your local computer</p>
+					 <p>This is where you do all your work </p>
+					 <p> It is called your local</p>
+					 <img src="images/my-precious.webp">
+				</section>
+
+				<section> <h3>You have a code project your local </h3>
+					<p class="fragment">The code has Git </p>
+					<p class="fragment">.git subdirectory</p>
+					<p class="fragment">If not - use <code> git init</code></p>
+				</section>
+
+				<section>
+					<h3>Deep breath</h3>
+					<img src="images/heavybreathing.webp" style="width: 500px;"/>
+				</section>
+
+				<section>
+					<h3> Three States of Git</h3>
+						<p class="fragment font-28"> These exist on your local </p>
+						<div class="fragment git-workflow-git-repository git-workflow float-left-inline-block width-25">1.
+							<strong>Committed:</strong>
+							<br />
+							<br />
+							Data is safely stored on your local
+						</div>
+						<div class="empty-space">&nbsp;</div>
+						<div class="fragment git-workflow-working-directory git-workflow float-left-inline-block width-25">
+							2. <strong>Modified:</strong>
+							<br />
+							<br />
+							You have changed some data/files but have not
+							recognized these changes
+						</div>
+						<div class="empty-space">&nbsp;</div>
+						<div class="fragment git-workflow-staging-area git-workflow float-left-inline-block width-25">
+							3. <strong>Staged:</strong>
+							<br />
+							<br />
+							You recognized that changes occurred but you haven't
+								<i>committed</i> these changes to save them
+						</div>
+				</section>
+
+				<section>
+					<h3> The three states directly relate to...</h3>
+				</section>
+
+				<section>
+					<h3>Three Sections/Trees of A Git Project</h3>
+					<p class="font-28">We are still only on your local</p>
+						<div class="fragment git-workflow-git-repository git-workflow float-left-inline-block width-25">
+							1. <strong>Git Directory (aka Git Repository):</strong>
+							<br />
+							<br />
+							Stores the metadata and object database for your project
+						</div>
+						<div class="empty-space">&nbsp;</div>
+						<div class="fragment git-workflow-working-directory git-workflow float-left-inline-block width-25">
+							2. <strong>Working Directory:</strong>
+							<br />
+							<br />
+							<br />
+							One single checkout of a version of the project
+						</div>
+						<div class="empty-space">&nbsp;</div>
+						<div class="fragment git-workflow-staging-area git-workflow float-left-inline-block width-25">
+							3. <strong>Staging Area (aka Index):</strong>
+							<br />
+							<br />
+							<br />
+								File that stores information about what will go in your next commit
+						</div>
+				</section>
+
+				<section>
+					<h3>Let's tie it together</h3>
+				</section>
+
+				<section>
+					<h3>Git Project Workflow</h3>
+					<div class="fragment git-workflow-working-directory git-workflow float-left-inline-block width-25">
+						<p><strong>Step: 1</strong></p>
+						<p>Git State:<br /> Modify files</p>
+						<p>Git Section:<br /> Working Directory</p>
+					</div>
+					<div class="fragment git-workflow-arrow">
+						<img src="images/arrow.svg"/>
+					</div>
+					<div class="fragment git-workflow-staging-area git-workflow float-left-inline-block width-25">
+						<p><strong>Step: 2</strong></p>
+						<p>Git State: <br />Stage the Modified Files</p>
+						<p>Git Section: <br /> Staging Area</p>
+					</div>
+					<div class="fragment git-workflow-arrow">
+						<img src="images/arrow.svg"/>
+					</div>
+					<div class="fragment git-workflow-git-repository git-workflow float-left-inline-block width-25">
+						<p><strong>Step: 3</strong></p>
+						<p>Git State: <br /> Commit these Modified Files</p>
+						<p>Git Section: <br /> Git Directory</p>
+					</div>
+					<div class="fragment">
+						<div class="git-project-line">
+							<div class="git-project-arrow black">&#9650;</div>
+					</div>
+					</div>
+				</section>
+
+				<section>
+				 <h3>Let's get to work! </h3>
+				 <img src="images/working-cat.webp" style="width:400px;">
+				</section>
+
+				<section>
+					<p>Check the state of the Git Project (<span class ="working-directory">Working Directory</span>,
+					<span class="staging-area"> Staging Area, </span> and
+					<span class="git-repository">Git Directory</span>) </p>
+					<code class="fragment"> <p>git status </p></code>
+					<img src="images/screenshots/git-status.png" class="fragment" style="width:600px;"/>
+				</section>
+
+				<section>
+					<p class="fragment">Make some changes to a CSS file</p>
+					<p class="fragment">In the <span class="working-directory"> Working Directory</span></p>
+					<img src="images/screenshots/modified-css-file.png" class="fragment" />
+				</section>
+
+				<section>
+					<p>Add these CSS changes to the <span class="staging-area">Staging Area</span></p>
+					<code class="fragment"> <p>git add [filename]</p></code>
+					<img src="images/screenshots/git-add-modified-css-file.png" class="fragment" style="width: 700px;"/>
+				</section>
+
+				<section>
+					<p>Add a completely new PHP file</p>
+					<p class="fragment"> Add this new file to the <span class="staging-area">Staging Area</span></p>
+					<code class="fragment"> git add [filename]</code>
+					<p class="fragment">Must add new files to track them in Git</p>
+					<img src="images/screenshots/git-add-example-php.png" class="fragment"/>
+				</section>
+
+				<section>
+					<h3>Git Diff - Comparing Sections/Trees</h3>
+					<div class="fragment">
+					<p>Difference between your
+						<span class="working-directory">
+							Working Directory
+						</span> with your
+						<span class="staging-area">Staging Area</span></p>
+					<code> git diff</code>
+					</div>
+					<div class="fragment">
+					<p>Difference between your <span class="staging-area">Staging Area</span>
+						and your <span class="git-repository">Git Directory</span></p>
+					<code> git diff --staged</code>
+						</div>
+				</section>
+
+				<section>
+					<h3>git diff --staged</h3>
+					<img src="images/screenshots/git-diff--staged.png" style="height: 400px;"/>
+				</section>
+
+				<section>
+					<h3>Git Commit</h3>
+					<div class="fragment">
+					<p>When the <span class="staging-area">Staging Area</span> is how you like it and you want to move the changes from the
+						<span class="staging-area">Staging Area</span>
+						 to the <span class="git-repository">Git Directory </span></p>
+					<code><p>git commit</p></code>
+				</div>
+				</section>
+
+				<section>
+					<h3> Git Commit</h3>
+					<p class="fragment">Records a snapshot of your project that you can revert back to</p>
+				</section>
+
+				<section>
+					<h3>Commit Message</h3>
+					<p class="fragment" ><code> git commit</code> launches a text editor</p>
+					<p class="fragment">Write a good commit message</p>
+					<div class="fragment">
+					<img src="images/git_commit.png" /> <br />
+					<a href="https://xkcd.com/">Source: xkcd</a>
+					</div>
+				</section>
+
+				<section>
+					<h3>Good Commit Messages</h3>
+					<ul>
+						<li class="fragment">Formatting: first line is 50 characters max, blank line, remaining text wrapped at 72 characters</li>
+						<li class="fragment">Include a ticket/task number</li>
+						<li class="fragment">Explain why you are making the commit</li>
+						<li class="fragment">What is being changed in the commit</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Hate Command Line Text Editors?</h3>
+					<div class="fragment">
+					<p>add the -m flag and avoid the editor</p>
+					<code> <p>git commit -m["Your message goes here"]</p></code>
+					<img src="images/screenshots/git-commit.png" class="fragment" style="height: 180px;"/>
+					</div>
+				</section>
+
+				<section>
+					<h3>Commit Output</h3>
+					<ul>
+						<li class="fragment"> Unique SHA-1 Checksum (long mix of numbers and letters)</li>
+						<li class="fragment"> The branch the commit is on (we will get to this)</li>
+						<li class="fragment"> The file changes	</li>
+						<li class="fragment"> Stats about the lines added/removed </li>
+					</ul>
+					<img src="images/screenshots/git-commit.png" class="fragment" style="height: 180px;"/>
+				</section>
+
+				<section>
+						<h3>Removing a file</h3>
+						<div class="fragment">
+							<p>Remove the file from your <span class="working-directory">Working Directory</span></p>
+							<code> git rm [filename] </code>
+						</div>
+						<p class="fragment">Run <code>git commit</code> after removing a file</p>
+						<img src="images/screenshots/git-rm-example-file.png" class="fragment" style="height: 250px;"/>
+				</section>
+
+				<section>
+					<h3> Renaming a file</h3>
+					<code class="fragment"> git mv [old_file_name][new_file_name]</code>
+					<p class="fragment">Run <code>git commit</code> after renaming a file</p>
+					<img src="images/screenshots/git-rename-a-file.png" class="fragment" style="height: 250px;"/>
+				</section>
+
+				<section>
+					<h3>Ignoring a File</h3>
+					<p class="fragment">.gitignore file - add or modify</p>
+					<p class="fragment">Uses glob patterns</p>
+					<p class="fragment">Local settings</p>
+				</section>
+
+				<section>
+					<h3>Viewing the Commit History</h3>
+					<code class="fragment"> git log</code>
+					<p class="fragment">This will display the most recent commits first</p>
+					<p class="fragment">There is a lot you can do to modify this</p>
+				</section>
+
+				<section>
+					<h3>Git Log</h3>
+					<img src="images/screenshots/git-log.png" style="height: 450px;"/>
+				</section>
+
+				<section>
+					<h3>Another Git Log </h3>
+					<img src="images/gitlog.png" />
+					<a href="https://coderwall.com/p/9jtyla/git-log-alias">Source: coderwall</a>
+
+				</section>
+
+				<section>
+					<h3>Undoing Things</h3>
+					<img src=images/huge-mistake.webp />
+				</section>
+
+				<section>
+					<h3>Warning</h3>
+					<p class="warning">&#9888; You cannot always undo your undoes!</p>
+				</section>
+
+				<section>
+					<h3>Make a commit too early and miss files / Write a bad commit message</h3>
+					<div class="fragmen font-25">
+						<code>git commit --amend</code>
+						<p> Takes your <span class="staging-area">Staging Area</span> and uses that snapshot for the commit</p>
+					</div>
+					<div class="fragment font-25">
+						<p> If there are no file changes - this command will rewrite your previous commit message </p>
+						<code class ="fragment">
+							<p>git commit -m"Great commit message"</p>
+							<p>git add forgotten_file</p>
+							<p>git commit --amend -m["Better commit message goes here"]</p>
+						</code>
+					</div>
+				</section>
+
+				<section>
+					<h3>git commit --amend</h3>
+					<img src="images/screenshots/git-commit--amend.png" style="width: 800px;" />
+				</section>
+
+				<section>
+					<h3>Unstaging A Staged File</h3>
+					<p class="fragment">You changed two files and added both. But you only want to add one to the commit!</p>
+					<div class="fragment">
+						<p>Unstage the file you don't want to commit</p>
+						<code> <p>git reset HEAD [filename]</p></code>
+					</div>
+					<pm class="fragment">Now the file is modified in your <span class="working-directory">Working Directory</span>
+						but NOT in your <span class="staging-area"> Staging Area</span></p>
+				</section>
+
+				<section>
+					<h3>Unstaging A Staged File</h3>
+					<img src="images/screenshots/unstaged-one-of-two-files.png" style="width: 700px;"/>
+				</section>
+
+				<section>
+					<h3>Warning</h3>
+					<p class="warning"> &#9888; If you add options/flags to <br />
+						<code>git reset HEAD [filename]</code> <br />
+						things can get dangerous
+					</p>
+				</section>
+
+				<section>
+					<h3>Unmodifying a Modified File</h3>
+					<p class="fragment"> Did you make some changes, stage those changes and decide you hate them? Undo it!</p>
+					<p class="warning fragment"> &#9888; Warning: This is an undo that you cannot undo! </p>
+					<code class="fragment"> git checkout -- [filename]</code>
+				</section>
+
+				<section>
+					<h3>Unmodifying a Modified File</h3>
+					<img src="images/screenshots/git-checkout.png" style="width:900px;"/>
+				</section>
+
+				<section>
+					<h3>Git helps teams work together</h3>
+					<img src="images/teamwork.webp" style="width: 500px;"/>
+				</section>
+
+				<section>
+					<h3>Remote</h3>
+					<p class="fragment">A place outside of your local where the code project exists</p>
+				</section>
+
+				<section>
+					<h3>Git Clone</h3>
+					<p class="fragment">Receives a full copy of nearly all the data from the remote</p>
+					<code class="fragment"> git clone [url]</code>
+					<p class="fragment">Probably hosted on Acquia, Github, Pantheon, internally, etc </p>
+				</section>
+
+				<section>
+					<h3>Origin</h3>
+					<p class="fragment">Default name Git gives the remote server you cloned from</p>
+				</section>
+
+				<section>
+					<h3>Master</h3>
+					<p class="fragment">Default name Git gives your local Git project (includes <span class="working-directory">Working Directory</span>,
+						<span class="staging-area">Staging Area</span>, and <span class="git-repository">Git Directory</span>)</p>
+				</section>
+
+				<section>
+					<h3> List Multiple Remotes</h3>
+					<div class="fragment">
+						<code> git remote [-v]</code>
+						<p>The -v flag will provide the url</p>
+					</div>
+				</section>
+
+				<section>
+						<h3>Get data from a remote</h3>
+						<p class="fragment">If someone on your team made changes to the remote AFTER you got your code</p>
+						<p class="fragment">There are two ways to do this: </p>
+						<div class="fragment">
+							1. <code>git fetch [remote-name]</code>
+								 <code><p>git merge origin/master</p></code>
+								 OR
+						</div>
+						<div class="fragment">
+							2. <code> git pull origin master</code>
+						</div>
+				</section>
+
+				<section>
+					<h3>Quick Review</h3>
+					<ol>
+						<li class="fragment"> Got code from a remote<br />
+									<code> git clone [url]</code></li>
+						<li class="fragment"> Made changes in your <span class="working-directory">Working Directory</span></li>
+						<li class="fragment"> Added these changes to your <span class="staging-area">Staging Area</span><br />
+									<code> git add [filename]</code></li>
+						<li class="fragment"> Committed these changes with a message <br />
+									<code>git commit -m"Best commit message ever"</code></li>
+					</ol>
+				</section>
+
+				<section>
+					<h3>Share your commits with your remote!</h3>
+					<img src="images/sharing-is-caring.webp" />
+				</section>
+
+				<section>
+					<h3>Git Push</h3>
+					<p class="fragment">Geting your commits up to the remote is known as pushing upstream</p>
+					<code class="fragment"> git push [remote-name][branch-name]</code>
+					<div class="fragment">
+						<p>Using Git defaults</p>
+						<code> git push origin master</code>
+					</div>
+				</section>
+
+				<section>
+					<h3>Git Push Failed!</h3>
+					<p class="fragment">Output with <code> failed to push some refs to [url]</code></p>
+					<p class="fragment">Someone on your team has updated the remote, and you need to get these changes before you push</p>
+					<div class="fragment">
+						<p>Get data from the remote</p>
+							<code>git pull origin master</code>
+					</div>
+				</section>
+
+				<section>
+					<h3>Git Branching</h3>
+					<p>Now Git gets super cool</p>
+					<img src="images/cool-cat.webp" style="width: 600px;"/>
+				</section>
+
+				<section>
+					<h3>Git Branching</h3>
+					<p>Separate from the main line of development and continue to do work without messing up the main line</p>
+				</section>
+
+				<section>
+					<h3>Git Branching</h3>
+					<p class="fragment">When you make a commit, Git stores a commit object that point to content changes included in that commit</p>
+					<p class="fragment">A branch is just a lightweight movable pointer associated with one commit</p>
+				</section>
+
+				<section>
+					<p class="fragment"> Remeber how <code>git clone [url]</code> called your local Git Project master?</p>
+					<p class="fragment">The default Git branch is called master</p>
+					<p class="fragment">Every branch has its own <span class="working-directory">Working Directory</span>,
+						<span class="staging-area">Staging Area</span> and
+						<span class="git-repository">Git Directory</span></p>
+				</section>
+
+				<section>
+					<h3>Branching and Commits</h3>
+					<p class="fragment font-28">When you start to make commits, you are given a master branch pointing to the last commit made</p>
+					<p class="fragment font-28">Every commit made moves the branch forward</p>
+					<p class="fragment font-28">Each commit points back to its parent(s)/ancestor(s)</p>
+					<p class="fragment font-28"> Master branch</p>
+					<div class="width-25 float-left-inline-block fragment"><p>Oldest Commit</p>
+						<div class="commit-box">commit 93ac7</div>
+					</div>
+					<div class ="padding-3 float-left-inline-block black fragment margin-top-11">&#11013;</div>
+					<div class="width-25 float-left-inline-block margin-top-9 fragment">
+						<div class="commit-box">commit a67bf</div>
+					</div>
+					<div class ="padding-3 float-left-inline-block black fragment margin-top-11">&#11013;</div>
+					<div class="width-25 float-left-inline-block fragment"><p>Newest Commit</p>
+						<div class="commit-box">commit bf032</div>
+					</div>
+				</section>
+
+				<section>
+					<h3>HEAD</h3>
+					<p class="fragment">A special unique pointer called HEAD keeps track of what branch you are on</p>
+					<p class="fragment">HEAD only points to the most recent commit on your current local branch</p>
+					<div class="fragment">
+						<div class="width-25 float-left-inline-block"><p>Oldest Commit</p>
+							<div class="commit-box">commit 93ac7</div>
+						</div>
+						<div class ="padding-3 float-left-inline-block black margin-top-11">&#11013;</div>
+						<div class="width-25 float-left-inline-block margin-top-9">
+							<div class="commit-box">commit a67bf</div>
+						</div>
+						<div class ="padding-3 float-left-inline-block black margin-top-11">&#11013;</div>
+						<div class="width-25 float-left-inline-block"><p>Newest Commit</p>
+							<div class="commit-box">commit bf032</div>
+							<div class="head">HEAD</div>
+						</div>
+				</div>
+				</section>
+
+				<section>
+					<h3>Switch Branches</h3>
+					<p class="fragment">Different branches point to different commits</p>
+					<p class="fragment">When you switch branches you move your HEAD</p>
+					<code class="fragment"> git checkout [branch-name]</code>
+				</section>
+
+				<section>
+					<h3>Let's take a closer look at branching</h3>
+					<img src="images/take-closer-look.gif" style="width: 600px;" />
+				</section>
+
+				<section>
+					<h3>Scenario </h3>
+					<p class="fragment">You are on branch master</p>
+					<p class="fragment">You have made several commits</p>
+					<p class="fragment">You want to make a new branch to work on a specific feature</p>
+				</section>
+
+				<section>
+					<h3 class="fragment">Make a branch</h3>
+					<code class="fragment">git status</code>
+					<div class="fragment">
+						<p>Make a branch called branch-a <br />
+							<code> git branch branch-a</code>
+						</p>
+					</div>
+					<div class="fragment">
+						<p>Switch your HEAD to that branch <br />
+						<code> git checkout branch-a</code>
+					</div>
+					<p class="fragment">branch-a and master are pointing at the same commit</p>
+				</section>
+
+				<section>
+					<h3>Develop on your Branch</h3>
+					<p class="fragment">Make a commit on branch-a</p>
+					<p class="fragment">branch-a has moved forward by one commit</p>
+				</section>
+
+				<section>
+					<h3>Your Local Git Now Looks Like This</h3>
+					<div class="width-17 float-left-inline-block">
+						<div class="commit-box margin-top-4">commit 93ac7</div>
+					</div>
+					<div class ="padding-1 black float-left-inline-block margin-top-6">&#11013;</div>
+					<div class="width-17 float-left-inline-block">
+						<div class="commit-box margin-top-4">commit a67bf</div>
+					</div>
+					<div class ="padding-1 black float-left-inline-block margin-top-6">&#11013;</div>
+					<div class="width-17 float-left-inline-block"> <div class="master">master</div>
+						<div class="commit-box">commit bf032</div>
+					</div>
+					<div class ="padding-1 black margin-top-11 transform-up float-left-inline-block margin-top-6">&#11013;</div>
+					<div class="width-17 float-left-inline-block margin-top-8 ">
+						<div class="commit-box margin-top-4">commit 7de21</div>
+						<div class="head">HEAD</div>
+						<div class="branch-a font-28">branch-a</div>
+					</div>
+				</section>
+
+				<section>
+					<br />
+					<p class="fragment font-28">If you <code>git checkout master</code>, the HEAD now points to branch master's lastest commit</p>
+					<p class="fragment font-28">Your local files revert to match the files of that commit </p>
+					<div class="fragment">
+					<div class="width-17 float-left-inline-block">
+						<div class="commit-box margin-top-4">commit 93ac7</div>
+					</div>
+					<div class ="padding-1 black float-left-inline-block margin-top-6">&#11013;</div>
+					<div class="width-17 float-left-inline-block">
+						<div class="commit-box margin-top-4">commit a67bf</div>
+					</div>
+					<div class ="padding-1 black float-left-inline-block margin-top-6">&#11013;</div>
+					<div class="width-17 float-left-inline-block">
+						<div class="commit-box margin-top-4">commit bf032</div>
+						<div class="master">master</div>
+						<div class="head">HEAD</div>
+					</div>
+					<div class ="padding-1 black margin-top-11 transform-up float-left-inline-block margin-top-6">&#11013;</div>
+					<div class="width-17 float-left-inline-block margin-top-8 ">
+						<div class="commit-box margin-top-4">commit 7de21</div>
+						<div class="branch-a font-28">branch-a</div>
+					</div>
+				</div>
+				</section>
+
+				<section>
+					<h3>Divergent History</h3>
+					<p class="fragment">Someone on your team has some work and updated master</p>
+					<p class="fragment">Your local master branch is now behind the remote</p>
+					<p class="fragment">Update your local with <code>git pull</code></p>
+					<p class="fragment">Both branches no longer point to the same commit ancestor/parent</p>
+				</section>
+
+				<section>
+					<h3>Divergent History</h3>
+					<div class="width-14 float-left-inline-block margin-top-6-25 font-28">
+						<div class="commit-box">commit 93ac7</div>
+					</div>
+					<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
+					<div class="width-14 float-left-inline-block margin-top-6-25 font-28">
+						<div class="commit-box">commit a67bf</div>
+					</div>
+					<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
+					<div class="width-14 float-left-inline-block margin-top-6-25 font-28">
+						<div class="commit-box">commit bf032</div>
+					</div>
+					<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
+					<div class ="padding-1-bottom commit-arrow-branch-divergent-bottom black float-left-inline-block transform-up">&#11013;</div>
+					<div class="width-14 float-left-inline-block font-28 margin-top-6-25">
+						<div class="commit-box">commit cba52</div>
+						<div class="commit-box margin-top-3px">commit 7de21</div>
+						<div class="branch-a">branch-a</div>
+					</div>
+					<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
+					<div class="width-14 float-left-inline-block font-28">
+						<div class="master">master</div>
+						<div class="head">HEAD</div>
+						<div class="commit-box">commit f04d8</div>
+					</div>
+				</section>
+
+				<section>
+					<h3>Merging</h3>
+					<p class="fragment">We have decided our branch-a changes are magical </p>
+					<p class="fragment">Let's share this magic - get these changes on our local master and then push up to the remote</p>
+					<div class="fragment">
+						<code>git checkout[branch-WANTS-the-changes] <br />
+							git merge [branch-HAS-the-changes]</code>
+					</div>
+				</section>
+
+				<section>
+					<h3>Merge Commit</h3>
+					<p class="fragment">We want to be on the master branch and accept the branch-a changes</p>
+						<code class="fragment">git checkout master <br />
+									git merge branch-a
+						</code>
+					</section>
+
+					<section>
+						<h3>Three-Way Merge Commit</h3>
+						<p class="fragment">Divergent history - Git uses a three-way merge (also called a merge commit)</p>
+						<p class="fragment">Git creates a new commit with a new snapshot</p>
+						<p class="fragment">This commit has more than one parent</p>
+					</section>
+
+					<section>
+						<h3>Three-Way Merge Commit</h3>
+						<div class="width-11 float-left-inline-block margin-top-6-25 font-25">
+							<div class="commit-box">commit 93ac7</div>
+						</div>
+						<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
+						<div class="width-11 float-left-inline-block margin-top-6-25 font-25">
+							<div class="commit-box">commit a67bf</div>
+						</div>
+						<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
+						<div class="width-11 float-left-inline-block margin-top-6-25 font-25">
+							<div class="commit-box">commit bf032</div>
+						</div>
+						<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
+						<div class ="commit-arrow-branch-divergent-bottom-merge transform-up black float-left-inline-block">&#11013;</div>
+						<div class="width-11 float-left-inline-block font-25 margin-top-6-25">
+							<div class="commit-box">commit cba52</div>
+							<div class="commit-box margin-top-3px">commit 7de21</div>
+							<div class="branch-a font-20">branch-a</div>
+						</div>
+						<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
+						<div class="width-11 float-left-inline-block font-25 margin-top-6-25">
+							<div class="commit-box">commit f04d8</div>
+						</div>
+						<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
+						<div class="width-11 float-left-inline-block font-25">
+							<div class="master">master</div>
+							<div class="head">HEAD</div>
+							<div class="commit-box">MERGE commit e67a8</div>
+						</div>
+						<div class="three-way-merge-commit-pointer black">
+							<div class="three-way-merge-commit-arrow">&#9664;</div>
+						</div>
+					</section>
+
+					<section>
+						<h3>Non-Divergent History</h3>
+							<code class="font-28 fragment"> git checkout master <br />
+								git merge branch-a<br /></code>
+							<p class="font-28 fragment">Two branches with non-divergent history</p>
+							<p class="font-28 fragment">Git will create a fast-forward merge</p>
+							<div class="fragment">
+						<div class="width-14 float-left-inline-block margin-top-6-25 font-28">
+							<div class="commit-box">commit 93ac7</div>
+						</div>
+						<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
+						<div class="width-14 float-left-inline-block margin-top-6-25 font-28">
+							<div class="commit-box">commit a67bf</div>
+						</div>
+						<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
+						<div class="width-14 float-left-inline-block margin-top-6-25 font-28">
+							<div class="commit-box">commit bf032</div>
+						</div>
+						<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
+						<div class="width-14 float-left-inline-block font-28 margin-top-6-25">
+							<div class="commit-box">commit cba52</div>
+							<div class="master">master</div>
+							<div class="head">HEAD</div>
+						</div>
+						<div class="padding-1 black float-left-inline-block transform-down margin-top-5">&#11013;</div>
+						<div class="width-14 float-left-inline-block font-28 neg-margin-top-2 ">
+							<div class="branch-a">branch-a</div>
+							<div class="commit-box">commit f04d8</div>
+						</div>
+					</div>
+					</section>
+
+					<section>
+						<h3>Fast Forward Merge</h3>
+						<p>Git simply moves the pointer forward</p>
+						<div class="width-14 float-left-inline-block margin-top-6-25 font-28">
+							<div class="commit-box">commit 93ac7</div>
+						</div>
+						<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
+						<div class="width-14 float-left-inline-block margin-top-6-25 font-28">
+							<div class="commit-box">commit a67bf</div>
+						</div>
+						<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
+						<div class="width-14 float-left-inline-block margin-top-6-25 font-28">
+							<div class="commit-box">commit bf032</div>
+						</div>
+						<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
+						<div class="width-14 float-left-inline-block font-28 margin-top-6-25">
+							<div class="commit-box">commit cba52</div>
+						</div>
+						<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
+						<div class="width-14 float-left-inline-block font-28 margin-top-3">
+							<div class="branch-a">branch-a</div>
+							<div class="commit-box">commit f04d8</div>
+							<div class="master">master</div>
+							<div class="head">HEAD</div>
+						</div>
+					</section>
+
+					<section>
+						<p> After your three-way merge or your fast-forward merge, push up to your remote and everyone can access your changes</p>
+						<img src="images/merging-sans-conflicts.webp"  />
+					</section>
+
+					<section>
+						<h3>Git Conflict</h3>
+						<p>Unless. It. All. Goes. Horribly. Wrong.</p>
+						<img src="images/git-conflict.webp"  />
+					</section>
+
+					<section>
+						<h3>Git Conflict</h3>
+						<p class="fragment font-28">If the same part of a file is changed on two branches</p>
+						<p class="fragment font-28">Appears when you try to merge these two branches</p>
+						<p class="fragment font-28">Git pauses the process and tells you there is a conflict</p>
+					</section>
+
+					<section>
+						<h3>What's Going On?</h3>
+						<p class="fragment">Git has added conflict markers  <<<<<<<, =======, and >>>>>>> in the files</p>
+						<img src="images/conflict-markers.png" class="fragment" />
+						<p class="fragment">Your HEAD changes appear above the =======</p>
+						<p class="fragment">The branch's changes you are trying to merge into your HEAD appears underneath the =======</p>
+					</section>
+
+					<section>
+						<h3>Fix it!</h3>
+						<p class="fragment">Solve the conflict by choosing your HEAD changes, the branch changes or select what you want from both</p>
+						<p class="fragment">There are a bunch of GUI merge conflict tools</p>
+						<p class="fragment">Old school: Edit the file and make sure you remove the conflict markers</p>
+					</section>
+
+					<section>
+						<h3>Conflict Resolution</h3>
+						<p class="fragment">After you have resolved the conflict <br />
+							<code>git add [filename] <br /></code>
+						</p>
+						<p class="fragment">
+							Check that you fixed all the file conflicts <br />
+							<code>git status</code>
+						</p>
+						<p class="fragment">Finalize the merge commit <br />
+							<code>git commit</code>
+						</p>
+					</section>
+
+					<section>
+						<h3>Avoid Merge Conflicts</h3>
+						<ul>
+							<li class="fragment">Communicate with your team!</li>
+							<li class="fragment">Make sure your master branch is up to date with remote</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Merging's Semi-Evil Twin: <span class="fragment">Rebasing</span></h3>
+						<p class="fragment">Integrates changes from one branch into another like merging</p>
+						<p class="fragment">Takes all the changes committed on one branch and replays them on another</p>
+						<p class="fragment">Makes a cleaner history</p>
+					</section>
+
+					<section>
+						<h3>Git Log - Rebasing</h3>
+						<div class="width-14 float-left-inline-block margin-top-6-25 font-28">
+							<div class="commit-box">commit 93ac7</div>
+						</div>
+						<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
+						<div class="width-14 float-left-inline-block margin-top-6-25 font-28">
+							<div class="commit-box">commit a67bf</div>
+						</div>
+						<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
+						<div class="width-14 float-left-inline-block margin-top-6-25 font-28">
+							<div class="commit-box">commit bf032</div>
+							<div class="master">master</div>
+						</div>
+						<div class ="commit-arrow-branch-divergent-top transform-down black float-left-inline-block">&#11013;</div>
+						<div class="width-14 float-left-inline-block font-28">
+							<div class="commit-box">commit cba52</div>
+						</div>
+						<div class ="padding-1 black margin-top-1 float-left-inline-block">&#11013;</div>
+						<div class="width-14 float-left-inline-block font-28">
+							<div class="commit-box">commit df71a</div>
+							<div class="branch-a">branch-a</div>
+						</div>
+					</section>
+
+					<section>
+						<h3>How Rebasing Works</h3>
+						<p class="fragment">We want to rebase the changes branch-a onto master <br />
+							<code>git checkout branch-a <br />
+										git rebase master <br />
+							</code>
+						</p>
+						<p class="fragment">Now we need to do a fast-forward merge <br />
+							<code> git checkout master <br />
+									 git merge branch-a
+							</code>
+						</p>
+					</section>
+
+					<section>
+						<h3>Rebasing</h3>
+						<p> Branches look linear instead of parallel</p>
+						<div class="width-14 float-left-inline-block margin-top-6-25 font-28">
+							<div class="commit-box">commit 93ac7</div>
+						</div>
+						<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
+						<div class="width-14 float-left-inline-block margin-top-6-25 font-28">
+							<div class="commit-box">commit a67bf</div>
+						</div>
+						<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
+						<div class="width-14 float-left-inline-block margin-top-6-25 font-28">
+							<div class="commit-box">commit bf032</div>
+						</div>
+						<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
+						<div class="width-14 float-left-inline-block margin-top-6-25 font-28">
+							<div class="commit-box">commit cba52</div>
+						</div>
+						<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
+						<div class="width-14 float-left-inline-block margin-top-3-25 font-28">
+							<div class="branch-a">branch-a</div>
+							<div class="commit-box">commit df71a</div>
+							<div class="master">master</div>
+							<div class="head">HEAD</div>
+						</div>
+					</section>
+
+					<section>
+						<h3>Warning! Warning! Warning!</h3>
+						<img src="images/checkyourself.gif" />
+					</section>
+
+					<section>
+						<h3>Rebasing rewrites history</h3>
+						<p class="warning fragment"><strong>&#9888; Do not rebase commits that exist outside of your repository</strong></p>
+						<p class="warning fragment"><strong>&#9888; Do not rebase commits that others may have based work off of</strong></p>
+					</section>
+
+					<section>
+						<h3>Cherry-Pick</h3>
+						<p>A cherry-pick is a rebase for a single commit</p>
+						<div class="fragment">
+							<div class="width-11 float-left-inline-block margin-top-14 font-25">
+								<div class="commit-box">commit 93ac7</div>
+							</div>
+							<div class ="padding-1 black float-left-inline-block margin-top-14-5">&#11013;</div>
+							<div class="width-11 float-left-inline-block margin-top-14 font-25">
+								<div class="commit-box">commit a67bf</div>
+							</div>
+							<div class ="padding-1 black float-left-inline-block margin-top-14-5">&#11013;</div>
+							<div class="width-11 float-left-inline-block margin-top-14 font-25">
+								<div class="commit-box">commit bf032</div>
+							</div>
+							<div class ="commit-arrow-branch-divergent-top transform-down black float-left-inline-block margin-top-4">&#11013;</div>
+							<div class ="cherrypick-merge-commit-arrow-top-25 black float-left-inline-block">&#11013;</div>
+							<div class="width-11 float-left-inline-block font-25 margin-top-6-25">
+								<div class="commit-box">commit cba52</div>
+								<div class="commit-box margin-top-3-25">commit 5d42e</div>
+								<div class="master">master</div>
+							</div>
+							<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
+							<div class="width-11 float-left-inline-block font-25 margin-top-6-25">
+								<div class="commit-box">commit 45ec9</div>
+							</div>
+							<div class ="padding-1 black float-left-inline-block margin-top-7">&#11013;</div>
+							<div class="width-11 float-left-inline-block font-20 margin-top-4">
+								<div class="branch-a">branch-a</div>
+								<div class="commit-box font-25">commit aac871</div>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<h3>Cherry-Pick</h3>
+						<p class="fragment">Pull in the second commit on branch-a 45ec9 into master</p>
+						<code class="fragment">git checkout master <br />
+									git cherry-pick 45ec9</code>
+						<p class="fragment">This creates a new commit</p>
+					</section>
+
+					<section>
+						<h3>Cherry Pick</h3>
+						<div class="width-11 float-left-inline-block margin-top-14 font-25">
+							<div class="commit-box">commit 93ac7</div>
+						</div>
+						<div class ="padding-1 black float-left-inline-block margin-top-14-5">&#11013;</div>
+						<div class="width-11 float-left-inline-block margin-top-14 font-25">
+							<div class="commit-box">commit a67bf</div>
+						</div>
+						<div class ="padding-1 black float-left-inline-block margin-top-14-5">&#11013;</div>
+						<div class="width-11 margin-top-14 font-25 float-left-inline-block">
+							<div class="commit-box">commit bf032</div>
+						</div>
+						<div class ="commit-arrow-branch-divergent-top transform-down black float-left-inline-block margin-top-4">&#11013;</div>
+						<div class ="cherrypick-merge-commit-arrow-top-20 black float-left-inline-block">&#11013;</div>
+						<div class="width-11 float-left-inline-block font-25 margin-top-6-25">
+							<div class="commit-box">commit cba52</div>
+							<div class="commit-box margin-top-3-25">commit 5d42e</div>
+						</div>
+						<div class ="padding-1 black float-left-inline-block margin-top-6-25">&#11013;</div>
+						<div class="width-11 float-left-inline-block font-25 margin-top-6-25">
+							<div class="commit-box">commit 45ec9</div>
+							<div class="cherrypick-merge-commit-small-arrow transform-up black">&#11013;</div>
+							<div class="cherrypick-merge-commit-pointer">&nbsp; </div>
+							<div class="cherrypick-merge-commit-arrow black">&#9664;</div>
+						</div>
+						<div class ="padding-1 black float-left-inline-block margin-top-6-25">&#11013;</div>
+						<div class="width-11 float-left-inline-block font-20 margin-top-4">
+							<div class="branch-a">branch-a</div>
+							<div class="commit-box font-25">commit aac871</div>
+							<div class="commit-box margin-top-3">CHERRY PICK commit 98bef</div>
+							<div class="master">master</div>
+							<div class="head">HEAD</div>
+						</div>
+
+					</section>
+
+					<section>
+						<h3>Stashing</h3>
+						<p class="fragment">Current problem is a work in progress, but need to switch branches for a hotfix</p>
+						<p class="fragment">Want to fix the hotfix with a clean <span class="working-directory">Working Directory</span>,
+							but still keep the progress you made</p>
+						<p class="fragment">Save the state of modified tracked files and staged changes</p>
+						<code class="fragment">
+							<p>git stash </p>
+						</code>
+						<p class="fragment"><span class="working-directory">Working directory</span> is now clean</p>
+					</section>
+
+					<section>
+						<h3>Stashing</h3>
+						<img src="images/screenshots/git-stash.png" style="width: 800px;"/>
+					</section>
+
+					<section>
+						<h3>Stashing - Files Overwritten By Checkout</h3>
+						<img src="images/screenshots/git-stash-2.png" style="width: 800px;"/>
+					</section>
+
+					<section>
+						<h3>Reapply A Saved Stash</h3>
+						<p class="fragment">List your stashes - most recent stash is first</br>
+							<code>git stash list</code> <br /></p>
+						<img src="images/screenshots/git-stash-list.png" class="fragment" style="width: 800px;"/>
+						<p class="fragment">Reapply a stash <br />
+						<code>git stash apply stash@{1}</code></p>
+						<p class="fragment">Git assumes most recent stash if you don't specify</p>
+					</section>
+
+					<section>
+						<h3>Create a Branch from a Stash</h3>
+						<p class="fragment">Use if the stash has been left alone for some time</p>
+						<code class="font-28 fragment"> <p>git stash branch [branch-name] [stash-number]</p>
+						 <p>git stash branch feature-branch stash@{1}</code></p>
+						 <img src="images/screenshots/stash-branch.png" class="fragment" />
+					</section>
+
+					<section>
+						<h3>This is just skimming the surface of Git</h3>
+						<img src="images/more.webp" />
+					</section>
+
+					<section>
+						<h3>References</h3>
+						<ul>
+							<li>Git manual</li>
+							<p class="margin-left"><code class="font-28">
+								git help [verb] <br />
+								git [verb] --help <br />
+								man git-[verb] </code>
+						</p>
+							<li> <a href="https://git-scm.com/book/en/v2">Read the book</a></li>
+							<li><a href="http://ohshitgit.com/">Common Git mistakes</a></li>
+							<li><a href="https://chris.beams.io/posts/git-commit/">Write good commit messages</a>
+
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Questions?</h3>
+						<img src="images/questions.webp" />
+					</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				slideNumber: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

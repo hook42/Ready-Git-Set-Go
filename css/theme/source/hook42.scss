@@ -1,0 +1,363 @@
+/**
+ * Hook42 - based on Sky theme for reveal.js.
+ *
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+
+// Include theme-specific fonts
+@import url(https://fonts.googleapis.com/css?family=Quicksand:400,500,700,400italic,500italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
+
+// Hook42 fonts
+$lightblue: #6880b0;
+$darkblue: #303e5b;
+$orange: #d86543;
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: 'Open Sans', sans-serif;
+$mainColor: $darkblue;
+$headingFont: 'Quicksand', sans-serif;
+$headingColor: $lightblue;
+$headingLetterSpacing: -0.08em;
+$headingTextShadow: darken( $orange, 20% );
+$backgroundColor: #fefefe;
+$linkColor: $lightblue;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: lighten( $lightblue, 20%);
+
+$heading1Size: 2.25em;
+$heading2Size: 1.75em;
+$heading3Size: 1.25em;
+$heading4Size: 1.00em;
+
+// Fix links so they are not cut off
+.reveal a {
+	line-height: 1.3em;
+}
+
+// Background generator
+@mixin bodyBackground() {
+	@include radial-gradient( #ddd, #fff );
+}
+
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+// Change selectors after template.
+.reveal a {
+	color: $orange;
+	&:hover {
+		color: darken( $orange, 20% );
+	}
+}
+
+.reveal section img {
+	border: none;
+	box-shadow: none;
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+	letter-spacing: -0.05em;
+}
+
+.reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+	text-transform: none;
+}
+
+.reveal ul.ul__centered {
+	padding: 0 20%;
+}
+
+.reveal {
+	.text__dark {
+		color: $darkblue;
+	}
+	.text__light {
+		color: $lightblue;
+	}
+	.text__small {
+		font-size: 80%;
+	}
+	.text__large {
+		font-size: 120%;
+	}
+	.text__bold {
+		font-weight: 500;
+	}
+}
+
+/** Lindsay Styling **/
+
+.reveal {
+	.slide-number {
+		position: fixed;
+		display: block;
+		right: 8px;
+		bottom: 8px;
+		z-index: 31;
+		font-family: Helvetica, sans-serif;
+		font-size: 12px;
+		line-height: 1;
+		color: #FFF;
+		background-color: #6880B0;
+		border-radius: 20px;
+		padding: 7px;
+		min-width: 12px;
+	}
+
+	.black {
+		color: black;
+	}
+	.staging-area {
+		color: DarkSlateBlue;
+	}
+	.git-repository {
+		color: ForestGreen;
+	}
+	.working-directory {
+		color: crimson;
+	}
+	.git-workflow {
+		padding: 10px;
+		color: #FFF;
+		font-size: 30px;
+		height: 400px;
+	}
+	.git-workflow-staging-area {
+		background-color: DarkSlateBlue;
+	}
+	.git-workflow-working-directory{
+		background-color: Crimson;
+	}
+	.git-workflow-git-repository {
+		background-color: ForestGreen;
+	}
+	.git-workflow-arrow {
+		width: 7%;
+		float: left;
+		padding-top: 15%;
+		padding-left: 1%;
+	}
+	.empty-space {
+		width: 65px;
+		float: left;
+	}
+
+	/*Git Project */
+	.git-project-line {
+		border-left: 15px solid black;
+		border-bottom: 15px solid black;
+		border-right: 15px solid black;
+		width: 70%;
+		height: 3rem;
+		position: relative;
+		left: 8rem;
+		top: 29.5rem;
+	}
+	.git-project-arrow{
+		position: absolute;
+		left: -27px;
+		top: -23px;
+	}
+
+	.commit-box {
+		border: 4px solid goldenrod;
+	}
+	.head {
+		margin-top: 3px;
+		margin-bottom: 3px;
+		border: 4px solid OrangeRed;
+	}
+
+	/* Three Way Merge */
+	.three-way-merge-commit-pointer{
+    height: 20px;
+    position: absolute;
+    width: 225px;
+    top: 293px;
+    right: 5.5rem;
+    border-right: 10px solid black;
+    border-bottom: 10px solid black;
+	}
+	.three-way-merge-commit-arrow{
+		position: absolute;
+    left: -33px;
+	}
+	.float-left-inline-block{
+		float: left;
+		display: inline-block;
+	}
+	/*Widths for commit boxes*/
+	.width-25{
+		width: 25%;
+	}
+	.width-17 {
+		width: 17%;
+	}
+	.width-14 {
+		width: 14%;
+	}
+	.width-11 {
+		width: 11%;
+	}
+	/*Padding for commit arrows */
+	.padding-1 {
+		padding-left: 1%;
+		padding-right: 1%;
+	}
+	.padding-3 {
+		padding-left: 3%;
+		padding-right: 3%;
+	}
+
+	.commit-arrow-branch-divergent-bottom{
+		position: absolute;
+		top: 18rem;
+		right: 25rem;
+	}
+
+	.commit-arrow-branch-divergent-top{
+		position: relative;
+    top: 5rem;
+    padding-left: 1rem;
+    right: .5rem;
+	}
+	.commit-arrow-branch-divergent-bottom-merge{
+		position: absolute;
+		top: 18rem;
+		right: 30rem;
+	}
+
+	.master {
+		border: 4px solid indigo;
+		margin-top: 3px;
+		margin-bottom: 3px;
+	}
+	.branch-a {
+		border: 4px solid royalblue;
+		margin-top: 3px;
+		margin-bottom: 3px;
+	}
+
+	/*Cherry Pick Styling */
+	.cherrypick-merge-commit-arrow{
+		position: relative;
+		left: -4rem;
+		top: -1.8rem;
+		font-size: 40px;
+	}
+
+	.cherrypick-merge-commit-small-arrow{
+		position: absolute;
+		font-size: 40px;
+		right: 9rem;
+	}
+
+	.cherrypick-merge-commit-arrow-top-20 {
+		position: absolute;
+		top: 20.5rem;
+		right: 30rem;
+	}
+
+	.cherrypick-merge-commit-arrow-top-25 {
+		position: absolute;
+		top: 25rem;
+		right: 30rem;
+	}
+
+	.cherrypick-merge-commit-pointer {
+		border-bottom: 10px solid black;
+		margin-top: 2.5rem;
+		width: 9rem;
+	}
+
+	/*Bunch of margin top settings*/
+
+	.neg-margin-top-2 {
+		margin-top: -2rem;
+	}
+	.margin-top-1{
+		margin-top: 1rem;
+	}
+	.margin-top-3{
+		margin-top: 3rem;
+	}
+	.margin-top-3-25{
+		margin-top: 3.25rem;
+	}
+	.margin-top-4{
+		margin-top: 4rem;
+	}
+	.margin-top-5{
+		margin-top: 5rem;
+	}
+	.margin-top-6{
+		margin-top:6rem;
+	}
+	.margin-top-6-25 {
+		margin-top: 6.25rem;
+	}
+	.margin-top-7{
+		margin-top: 7rem;
+	}
+	.margin-top-8 {
+		margin-top: 8rem;
+	}
+	.margin-top-9{
+		margin-top: 9rem;
+	}
+	.margin-top-11 {
+		margin-top: 11rem;
+	}
+	.margin-top-14 {
+		margin-top:14rem;
+	}
+	.margin-top-14-5{
+		margin-top: 14.5rem;
+	}
+	.margin-top-3px{
+		margin-top: 3px;
+	}
+
+	/*Margin left */
+	.margin-left {
+		margin-left: 8rem;
+	}
+
+	/*Font styles */
+	.font-20{
+		font-size: 20px;
+	}
+	.font-25{
+		font-size: 25px;
+	}
+	.font-28{
+		font-size: 28px;
+	}
+
+	/*Arrow Transform */
+
+	.transform-up {
+	  transform: rotate(35deg);
+	}
+	.transform-down {
+		transform: rotate(-35deg);
+	}
+
+	.warning{
+		padding: 2rem;
+		border:3px dotted red;
+		background-color: yellow;
+		color: black;
+	}
+}

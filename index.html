@@ -30,7 +30,6 @@
 						Ready, Git Set, Go! </h1>
 					<h3 class="fragment">Understanding Git</h3>
 					<p class="fragment">Lindsay Gaudinier at Hook 42</p>
-					<a href="https://legaudinier.github.io/Ready-Git-Set-Go/#/" class="fragment">Github Presentation Link</a>
 				</section>
 
 				<section>
@@ -38,8 +37,10 @@
 					<ul>
 						<li class="fragment">Front End Developer at Hook 42</li>
 						<li class="fragment">Swimming, cats and the internet</li>
-						<li class="fragment">My first solo talk </li>
 					</ul>
+					<div>
+						<img src="images/dude.png" class="fragment" style="width: 200px;">
+					</div>
 
 				</section>
 
@@ -48,7 +49,7 @@
 					<ul>
 						<li class="fragment">You have basic command line knowledge </li>
 						<li class="fragment">You have Git downloaded and configured on your computer
-							<a href="https://git-scm.com/downloads">(if not, download Git here)</a></li>
+							<a href="https://git-scm.com/downloads">(if not, download Git here: https://git-scm.com/downloads)</a></li>
 						<li class="fragment">You are patient - some words are mentioned before they are defined</li>
 					</ul>
 				</section>
@@ -97,6 +98,7 @@
 					<p class="fragment">The code has Git </p>
 					<p class="fragment">.git subdirectory</p>
 					<p class="fragment">If not - use <code> git init</code></p>
+					<img src="images/screenshots/git-init.png" class="fragment" style="width: 500px;">
 				</section>
 
 				<section>
@@ -325,9 +327,15 @@
 
 				<section>
 					<h3>Ignoring a File</h3>
-					<p class="fragment">.gitignore file - add or modify</p>
-					<p class="fragment">Uses glob patterns</p>
-					<p class="fragment">Local settings</p>
+					<span class="font-25">
+						<p class="fragment">.gitignore file - add or modify</p>
+						<p class="fragment">Place the file in the working directory, do not place in .git </p>
+						<p class="fragment">Can place the .gitignore file anywhere and have multiple .gitignore files</p>
+						<p class="fragment">Unless you have a good reason, place .gitignore at the root of the project</p>
+						<p class="fragment">Uses glob patterns</p>
+						<p class="fragment">Local settings</p>
+						<p class="fragment">Also ignore with .git/info/exclude file</p>
+					</span>
 				</section>
 
 				<section>
@@ -481,7 +489,7 @@
 
 				<section>
 					<h3>Share your commits with your remote!</h3>
-					<img src="images/sharing-is-caring.webp" />
+					<img src="images/sharing-is-caring.gif" />
 				</section>
 
 				<section>
@@ -829,9 +837,11 @@
 
 					<section>
 						<h3>Git Conflict</h3>
+						<p class="fragment font-28">Not really that big of a deal, but  you do need to be careful and deliberate in your actions</p>
 						<p class="fragment font-28">If the same part of a file is changed on two branches</p>
 						<p class="fragment font-28">Appears when you try to merge these two branches</p>
 						<p class="fragment font-28">Git pauses the process and tells you there is a conflict</p>
+						<p class="fragment font-28">Still only on your local, so nothing is broken for everyone else (yet)</p>
 					</section>
 
 					<section>
@@ -868,6 +878,7 @@
 						<ul>
 							<li class="fragment">Communicate with your team!</li>
 							<li class="fragment">Make sure your master branch is up to date with remote</li>
+							<li class="fragment">Recompile, ex. css.map</li>
 						</ul>
 					</section>
 
@@ -1031,7 +1042,6 @@
 							<div class="master">master</div>
 							<div class="head">HEAD</div>
 						</div>
-
 					</section>
 
 					<section>
@@ -1072,6 +1082,20 @@
 						<code class="font-28 fragment"> <p>git stash branch [branch-name] [stash-number]</p>
 						 <p>git stash branch feature-branch stash@{1}</code></p>
 						 <img src="images/screenshots/stash-branch.png" class="fragment" />
+					</section>
+
+					<section>
+						<h3>Git Blame</h3>
+						<code class="font-28 fragment"> <p>git blame [filename]</p></code>
+						<p class="font-28 fragment">Goes through every line and tells you who made the last change to the line</p>
+						<code class="font-28 fragment"><p>git blame -L [startLineNumber], [endLineNumber] [filename]</p>
+									<p>git blame -L 40, 60 foo.txt</p>
+						</code>
+					</section>
+
+					<section>
+						<h3>Git Blame</h3>
+						<img src="images/screenshots/git-blame.png" class="fragment" />
 					</section>
 
 					<section>
